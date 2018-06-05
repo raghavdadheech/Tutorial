@@ -1,0 +1,739 @@
+Q). 1		
+Output of following Java program?
+class Base {
+    public void Print() {
+        System.out.println("Base");
+    }         
+}
+class Derived extends Base {    
+    public void Print() {
+        System.out.println("Derived");
+    }
+}
+class Main{
+    public static void DoPrint( Base o ) {
+        o.Print();   
+    }
+    public static void main(String[] args) {
+        Base x = new Base();
+        Base y = new Derived();
+        Derived z = new Derived();
+        DoPrint(x);
+        DoPrint(y);
+        DoPrint(z);
+    }
+}
+
+A).	Base Derived Derived
+B).	Base Base Base
+C).	Base Base Derived
+D). 	Compilation Failed
+
+Ans A.
+
+Q).2
+class Vehicle {
+    public static void travel() {
+       System.out.println("Vehicle::travel() called");
+    }
+}
+class Bus extends Vehicle {
+    public static void travel() {
+       System.out.println("Bus::travel() called");
+    }
+}
+  
+public class Main {
+    public static void main(String[] args) {
+    	Vehicle b = new Bus();;
+        b.travel();
+    }
+}
+
+A).	Vehicle::travel() called
+B).	Bus::travel() called
+C).	Compilation Failed
+D). 	Runtime Exception
+
+Ans A.
+
+Q).	3
+class LogicalCompare{
+        public static void main(String args[]){
+                String str1 = new String("OKAY");
+                String str2 = new String(str1);
+                System.out.println(str1 == str2);
+        }
+}
+
+A).	true
+B).	false
+
+Ans B.
+
+Q. 4 
+Which of the following Array declaration statement is illegal ?
+A. int [ ] a [ ] = new int [4] [4];
+B. int a[ ][ ] = new int [4] [4];
+C. int a[ ] [ ] = new int [ ] [4];
+D. int [ ] a [ ] = new int [4] [ ];
+
+Ans C.
+
+Q. 5
+What will be the result of given code?
+String str = "Java";
+String str1 = new String("Java");
+  
+System.out.println(str.equals(str1));
+System.out.println(str == str1);
+System.out.println( str.compareTo(str1) );
+
+
+A. true true true
+B. true true 0
+C. true false true
+D. true false 0
+
+Ans D.
+
+Q. 6
+Complete the following statement ?
+If Super class method throws an exception, then Subclass overridden method .......
+A. can throw the same exception.
+B. can throw no exception.
+C. can throw child class of the exception thrown by Super class method.
+D. All of the Above.
+
+Ans D.
+
+Q. 7
+Which of the following modifier is used to prevent a property from being serialized ?
+A. strictfp
+B. native
+C. transient
+D. volatile
+
+Ans C
+
+
+Q. 8
+Can abstract class have constructor in Java. Yes or No?
+A. Yes
+B. No
+
+Ans A.
+
+Q 9. 
+Given the code fragment:
+public class Test {
+ public static void main(String[] args) {
+ int x = 10;
+ int y = 2;
+ try {
+ for (int z = 2; z >= 0; z--) {
+ int ans = x / z;
+System.out.print(ans+ " ");
+ }
+ } catch (Exception e1) {
+ System.out.println("E1");
+ } catch (ArithmeticException e1) {
+ System.out.println("E2");
+ }
+ }
+}
+What is the result?
+A) E1
+B) E2
+C) 5 10 E1
+D) Compilation fails.
+
+Ans D.
+
+
+Q 10.
+Given the code fragment:
+ StringBuilder s1 = new StringBuilder("Java");
+ String s2 = "Love";
+ s1.append(s2);
+ s1.substring(4);
+ int foundAt = s1.indexOf(s2);
+System.out.println(foundAt);
+What is the result?
+A) -1
+B) 3
+C) 4
+D) A StringIndexOutOfBoundsException is thrown at runtime.
+
+Ans C.
+
+Q 11.
+Given:
+public class MySort implements Comparator<Integer> {
+ public int compare(Integer x, Integer y) {
+ return y.compareTo(x);
+ }
+}
+And the code fragment:
+ Integer[] primes = {2, 7, 5, 3};
+ MySort ms = new MySort();
+ Arrays.sort(primes, ms);
+ for (Integer p2 : primes) {
+ System.out.print(p2 + " ");
+ }
+What is the result?
+A) 2 3 5 7
+B) 2 7 5 3
+C) 7 5 3 2
+D) Compilation fails.
+
+Ans C.
+
+Q 12. 
+Given:
+public class Bees {
+ public static void main(String[] args) {
+ try {
+ new Bees().go();
+ } catch (Exception e) {
+ System.out.println("thrown to main");
+ }
+ }
+ synchronized void go() throws InterruptedException {
+ Thread t1 = new Thread();
+ t1.start();
+ System.out.print("1 ");
+ t1.wait(5000);
+ System.out.print("2 ");
+ }
+}
+What is the result?
+A) The program prints 1 then 2 after 5 seconds
+B) The program prints: 1 thrown to main
+C) The program prints: 1 2 thrown to main
+D) The program prints:1 then t1 waits for its notification.
+Ans B.
+
+Q 13.
+
+class Value
+{
+    public int i = 15;
+}
+public class Test
+{
+    public static void main(String argv[])
+    {
+        Test t = new Test();
+        t.first();
+    }
+    public void first()
+    {
+        int i = 5;
+        Value v = new Value();
+        v.i = 25;
+        second(v, i);
+        System.out.println(v.i);
+    }
+    public void second(Value v, int i)
+    {
+        i = 0;
+        v.i = 20;
+        Value val = new Value();
+        v =  val;
+        System.out.println(v.i + " " + i);
+    }
+}
+
+A. 15 0
+     20
+B. 15 0
+     15
+C. 20 0
+     20
+D. 0 15
+     20
+	
+Ans A.
+	
+Q 14.
+Which of these classes is used for input and output operation when working with bytes?
+A. InputStream 
+B. FileReader 
+C. FileWriter 
+D. All of the mentioned
+
+Ans A.
+
+Q 15.
+Which class can handle any type of request so it is protocol-independent?
+A) GenericServlet 
+B) HttpServlet
+C) Both A & B
+D) None of the above
+
+Ans A.
+
+Q 16.
+In Session tracking which method is used in a bit of information that is sent by a web server to a browser and which can later be read back from that browser?
+A) HttpSession
+B) URL rewriting
+C) Cookies
+D) Hidden form fields
+
+Ans C.
+
+Q 17.
+These methods doGet(),doPost(),doHead,doDelete(),deTrace() are defined in?
+A) GenereicServlet.java
+B) HttpServlet.java
+C) Servlet.java
+D) Object.java
+Ans B.
+
+Q 18.
+Which is a superclass of all exception classes?
+A) Throwable
+B) Exception
+C) RuntimeException
+D) IOException
+Ans A.
+Q 19.
+What is the result of compiling and running the following code?
+public class Test {
+	public static void main(String[] args) {
+		String[] arr = { "Java", "Champ", "." };
+		List<String> list = (List<String>) Arrays.asList(arr); // line 1
+		arr[2] = ".com"; // line 2
+		for (String word : list) {
+			System.out.print(word);
+		}
+	}
+}
+
+A) JavaChamp.
+B) JavaChamp.com
+C) Compilation Failed
+D) Runtime Exception
+
+Ans B.
+
+Q 20).
+Which two statements are true about comparing two instances of the same class, given that the equals() and hashCode() methods have been properly overridden?
+
+1	If the equals() method returns true, the hashCode() comparison == must return true.
+2	If the equals() method returns false, the hashCode() comparison != must return true.
+3	If the hashCode() comparison == returns true, the equals() method must return true.
+4	If the hashCode() comparison == returns true, the equals() method might return true.
+A.	1 and 4
+B.	2 and 3
+C.	3 and 4
+D.	1 and 3
+
+Ans A.
+
+Q 21).
+
+What is the result of compiling and running the following code?
+
+public class Test{
+	public static void main(String[] args) {
+		Set<Human> humans = new HashSet<Human>();
+		humans.add(new Human(13));
+		humans.add(new Human(33));
+		humans.add(new Human(21));
+		humans.add(new Human(21));
+		System.out.print(humans.size()+" ");
+		System.out.print(humans);
+	}
+}
+
+class Human implements Comparable<Human> {
+	Integer age;
+	public Human(int age) {
+		this.age = age;
+	}
+	public int compareTo(Human h) {
+		return h.age.compareTo(this.age);
+	}
+	public String toString() {
+		return ""+this.age;
+}
+}
+
+A) 4 [13, 21, 21, 33]
+B) 3 [13, 21, 33]
+C) Compilation Failed
+D) Runtime Exception
+
+Ans A.
+
+Q 22).
+What is the result of compiling and running the following code?
+public class Tester {
+	public static void main(String[] args) {
+		Integer[] arr = {7,5,7,3};
+		Set<Integer> set = new TreeSet<Integer>(Arrays.asList(arr));
+		set.add(4);
+		for(Integer value: set){
+			System.out.print(value);
+		}
+	}
+}
+
+A) Compilation Failed
+B) 75734
+C) 3457
+D) 34577
+
+Ans C.
+
+Q 23).
+What is the result of compiling and running the following code?
+class Bird {
+	static {
+		System.out.print("static1 ");
+	}
+	{
+		System.out.print("init1 ");
+	}
+	public Bird() {
+		System.out.print("Bird ");
+	}
+	static {
+		System.out.print("static2 ");
+	}
+}
+public class Falcon extends Bird {
+	Falcon(){
+		System.out.print("Falcon ");
+	}
+	public static void main(String[] args) {
+		System.out.print("main ");
+		new Falcon();
+	}
+}
+
+A) main static1 static2 init1 Bird Falcon
+B) main static1 static2 Falcon init1 Bird
+C) static1 static2 main init1 Bird Falcon
+D) static1 static2 main Bird init1 Falcon
+
+Ans C.
+
+Q 24).
+What is the correct answer?
+public class Test {
+	public void method(StringBuffer sb) {
+		System.out.println("StringBuffer method");
+	}
+	public void method(String s) {
+		System.out.println("String method");
+	}
+	public static void main(String[] args) {
+		Test test = new Test();
+		test.method(null);
+	}
+}
+
+A) Stringbuffer method
+B) String method
+C) Compilation Failed
+D) Runtime Exception
+
+Ans C.
+
+Q 25).
+In which case a NoClassDefFoundError will be thrown?
+
+A) When try to compile a non found java file
+B) When try to run a non found java .class file
+
+Ans B.
+  
+Q 26).
+interface DoMath 
+{
+    double getArea(int rad); 
+}
+interface MathPlus 
+{
+    double getVol(int b, int h); 
+}
+which two code fragments inserted at end of the program, will allow to compile?
+1	class AllMath extends DoMath { double getArea(int r); }
+2	interface AllMath implements MathPlus { double getVol(int x, int y); }
+3	interface AllMath extends DoMath { float getAvg(int h, int l); }
+4	class AllMath implements MathPlus { double getArea(int rad); }
+5	abstract class AllMath implements DoMath, MathPlus { public double getArea(int rad) { return rad * rad * 3.14; } }
+A.	1 only
+B.	2 only
+C.	3 and 5
+D.	1 and 4
+
+
+Ans 3.
+
+Q 27).	
+Which three statements are true?
+1	The default constructor initialises method variables.
+2	The default constructor has the same access as its class.
+3	The default constructor invokes the no-arg constructor of the superclass.
+4	If a class lacks a no-arg constructor, the compiler always creates a default constructor.
+5	The compiler creates a default constructor only when there are no other constructors for the class.
+A.	1, 2 and 4
+B.	2, 3 and 5
+C.	3, 4 and 5
+D.	1, 2 and 3
+
+Ans B.
+
+Q 28).
+Which statement is true?
+A.	A static method cannot be synchronized.
+B.	If a class has synchronized code, multiple threads can still access the nonsynchronized code.
+C.	Variables can be protected from concurrent access problems by marking them with the synchronized keyword.
+D.	When a thread sleeps, it releases its locks.
+
+Ans B.
+
+Q 29.
+What will be the output of the program?
+public class ObjComp 
+{
+    public static void main(String [] args ) 
+    {
+        int result = 0;
+        ObjComp oc = new ObjComp();
+        Object o = oc;
+
+        if (o == oc)  
+            result = 1;
+        if (o != oc)  
+            result = result + 10;
+        if (o.equals(oc) )  
+            result = result + 100;
+        if (oc.equals(o) )  
+            result = result + 1000;
+
+        System.out.println("result = " + result);
+    }
+}
+A.	1
+B.	10
+C.	101
+D.	1101
+
+Ans D.
+
+
+
+Q 30.
+What will be the output of the program?
+public class Test
+{ 
+    public static void main(String[] args) 
+    {
+        String s = "foo"; 
+        Object o = (Object)s; 
+        if (s.equals(o)) 
+        { 
+            System.out.print("AAA"); 
+        } 
+        else 
+        {
+            System.out.print("BBB"); 
+        } 
+        if (o.equals(s)) 
+        {
+            System.out.print("CCC"); 
+        } 
+        else 
+        {
+            System.out.print("DDD"); 
+        } 
+    } 
+}
+A.	AAACCC
+B.	AAADDD
+C.	BBBCCC
+D.	BBBDDD
+
+Ans A.
+
+Q 31.
+Which of the following statements about the hashcode() method are incorrect?
+
+The value returned by hashcode() is used in some collection classes to help locate objects.
+The hashcode() method is required to return a positive int value.
+The hashcode() method in the String class is the one inherited from Object.
+Two new empty String objects will produce identical hashcodes.
+A.	1 and 2
+B.	2 and 3
+C.	3 and 4
+D.	1 and 4
+
+Ans B.
+
+Q 32.
+
+What will be the output of the program?
+public class Switch
+{
+    final static short x = 2;
+    public static int y = 0;
+    public static void main(String [] args) 
+    {
+        for (int z=0; z < 3; z++) 
+        {
+            switch (z) 
+            {
+                case x: System.out.print("0 ");
+                case x-1: System.out.print("1 ");
+                case x-2: System.out.print("2 ");
+            }
+        }
+    }
+}
+A.	0 1 2
+B.	0 1 2 1 2 2
+C.	2 1 0 1 0 0
+D.	2 1 2 0 1 2
+
+Ans D.
+
+Q 33.	
+What will be the output of the program?
+class Q207 
+{ 
+    public static void main(String[] args) 
+    {
+        int i1 = 5; 
+        int i2 = 6; 
+        String s1 = "7"; 
+        System.out.println(i1 + i2 + s1); /* Line 8 */
+    } 
+}
+A.	18
+B.	117
+C.	567
+D.	Compiler error
+
+Ans B.	
+
+Q 34.
+Which collection class allows you to access its elements by associating a key with an element's value, and provides synchronization?
+
+A.	java.util.SortedMap
+B.	java.util.TreeMap
+C.	java.util.TreeSet
+D.	java.util.Hashtable
+Ans D.
+
+Q 35.
+Which of the following is correct about PreparedStatement?
+A	Prepared statements offer better performance, as they are pre-compiled.
+B	Prepared statements reuse the same execution plan for different arguments rather than creating a new execution plan every time.
+C	Prepared statements use bind arguments, which are sent to the database engine.
+D	All of the above.
+Ans D.
+Q 36.
+Which class does not override the equals() and hashCode() methods, inheriting them directly from class Object?
+
+A.	java.lang.String
+B.	java.lang.Double
+C.	java.lang.StringBuffer
+D.	java.lang.Character
+
+Ans C.
+
+Q37.
+Which two are valid constructors for Thread?
+
+1	Thread(Runnable r, String name)
+2	Thread()
+3	Thread(int priority)
+4	Thread(Runnable r, ThreadGroup g)
+5	Thread(Runnable r, int priority)
+A.	1 and 3
+B.	2 and 4
+C.	1 and 2
+D.	2 and 5
+
+Ans C.
+
+Q38.
+public class Myfile 
+{ 
+    public static void main (String[] args) 
+    {
+        String biz = args[1]; 
+        String baz = args[2]; 
+        String rip = args[3]; 
+        System.out.println("Arg is " + rip); 
+    } 
+}
+Select how you would start the program to cause it to print: Arg is 2
+A.	java Myfile 222
+B.	java Myfile 1 2 2 3 4
+C.	java Myfile 1 3 2 2
+D.	java Myfile 0 1 2 3
+Ans C.
+Q39.
+What will be the output of the program?
+
+public class RTExcept 
+{
+    public static void throwit () 
+    {
+        System.out.print("throwit ");
+        throw new RuntimeException();
+    }
+    public static void main(String [] args) 
+    {
+        try 
+        {
+            System.out.print("hello ");
+            throwit();
+        }
+        catch (Exception re ) 
+        {
+            System.out.print("caught ");
+        }
+        finally 
+        {
+            System.out.print("finally ");
+        }
+        System.out.println("after ");
+    }
+}
+A.	hello throwit caught
+B.	Compilation fails
+C.	hello throwit RuntimeException caught after
+D.	hello throwit caught finally after
+
+Ans D.
+
+Q40.
+What will be the output of the program?
+
+public class Foo 
+{  
+    public static void main(String[] args) 
+    {
+        try 
+        { 
+            return; 
+        } 
+        finally 
+        {
+            System.out.println( "Finally" ); 
+        } 
+    } 
+}
+A.	Finally
+B.	Compilation fails.
+C.	The code runs with no output.
+D.	An exception is thrown at runtime.
+
+Ans A.
